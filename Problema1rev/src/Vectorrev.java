@@ -1,21 +1,21 @@
 public class Vectorrev {
 	
-	static int n;
+	private int lenght;
+	private int[] v;
 	
-	public static int[] createVector(int n) {
-		int[] v = new int[n];
+	public Vectorrev(int n) {
+		lenght = n;
+		v = new int[lenght];
 		
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < lenght; i++)
 			v[i] = i;
-		
-		return v;
 	}
 	
-	public static void printElement(int pos, int[] v) {
+	public void printElement(int pos) {
 		System.out.println(v[pos]);
 	}
 	
-	public static int[] reorderVector(int pos1, int pos2, int[] v) {
+	public void reorderVector(int pos1, int pos2) {
 		int aux;
 		
 		while(pos1 <= pos2) {
@@ -26,12 +26,28 @@ public class Vectorrev {
 			pos1++;
 			pos2--;
 		}
-				
-		return v;
 	}
 	
-	public static void printVector(int[] v, int n){
-		for(int i = 0; i < n; i++)
+	public void shiftLeft(int pos1, int pos2) {
+		int aux = v[pos1];
+		
+		for(int i = pos1 + 1; i <= pos2; i++)
+			v[i-1] = v[i];
+				
+		v[pos2] = aux;
+	}
+	
+	public void shiftRight(int pos1, int pos2) {
+		int aux = v[pos2];
+		
+		for(int i = pos2 - 1; i >= pos1; i--)
+			v[i+1] = v[i];
+		
+		v[pos1] = aux;
+	}
+	
+	public void printVector() {
+		for(int i = 0; i < lenght; i++)
 			System.out.print(v[i]+ " ");
 	}
 	

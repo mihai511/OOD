@@ -8,23 +8,45 @@ public class Applicationrev {
 		Scanner sc = new Scanner(file);
 	
 		int n = sc.nextInt();
-		int[] v = Vectorrev.createVector(n);
+		Vectorrev v = new Vectorrev(n);
 		int x;
 		int y;
+		int pos1;
+		int pos2;
 		
 		while(sc.hasNextInt()) {
 			x = sc.nextInt();
 		
 			if(x == 1) {
-				int pos1 = sc.nextInt();
-				int pos2 = sc.nextInt();
+				pos1 = sc.nextInt();
+				pos2 = sc.nextInt();
 			
-				Vectorrev.reorderVector(pos1, pos2, v);
-				Vectorrev.printVector(v, n);
+				v.reorderVector(pos1, pos2);
+				v.printVector();
 				System.out.println("\n");
-			}else {
+			}
+			
+			if(x == 2) {
 				y = sc.nextInt();
-				Vectorrev.printElement(y, v);
+				v.printElement(y);
+				System.out.println("\n");
+			}
+			
+			if(x == 3) {
+				pos1 = sc.nextInt();
+				pos2 = sc.nextInt();
+			
+				v.shiftLeft(pos1, pos2);
+				v.printVector();
+				System.out.println("\n");
+			}
+			
+			if(x == 4) {
+				pos1 = sc.nextInt();
+				pos2 = sc.nextInt();
+			
+				v.shiftRight(pos1, pos2);
+				v.printVector();
 				System.out.println("\n");
 			}
 		}
