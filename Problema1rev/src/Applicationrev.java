@@ -49,6 +49,15 @@ public class Applicationrev {
 				v.printVector();
 				System.out.println("\n");
 			}
+			
+			if(x == 5) {
+				pos1 = sc.nextInt();
+				pos2 = sc.nextInt();
+			
+				v.interchangeEvenOdd(pos1, pos2);
+				v.printVector();
+				System.out.println("\n");
+			}
 		}
 		
 		sc.close();
