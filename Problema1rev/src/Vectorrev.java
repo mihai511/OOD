@@ -46,6 +46,22 @@ public class Vectorrev {
 		v[pos1] = aux;
 	}
 	
+	public void interchangeEvenOdd(int pos1, int pos2) {
+		if(pos1 % 2 == 1)
+			pos1++;
+		
+		if(pos2 % 2 == 0)
+			pos2--;
+		
+		int aux;
+		
+		for(int i = pos1; i <= pos2; i+=2) {
+			aux = v[i];
+			v[i] = v[i+1];
+			v[i+1] = aux;
+		}
+	}
+	
 	public void printVector() {
 		for(int i = 0; i < lenght; i++)
 			System.out.print(v[i]+ " ");
